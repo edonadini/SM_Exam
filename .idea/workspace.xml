@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="JupyterTrust" id="17fa1031-32ed-4c37-a216-b862dc2b5824" />
+  <component name="ProjectId" id="1XbjY0eHP0UWBzWzPN0XLNIsudb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="" />
+      <created>1581321731292</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581321731292</updated>
+      <workItem from="1581321733306" duration="477000" />
+      <workItem from="1581322225269" duration="265000" />
+      <workItem from="1581332895470" duration="1539000" />
+      <workItem from="1581336753638" duration="4518000" />
+      <workItem from="1581342508737" duration="313000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="329" y="172" key="SettingsEditor" timestamp="1581322210168">
+      <screen x="0" y="27" width="1680" height="1023" />
+    </state>
+    <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
+    <state x="2424" y="227" width="662" height="620" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581340899562">
+      <screen x="1920" y="0" width="1680" height="1050" />
+    </state>
+    <state x="2424" y="227" width="662" height="620" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1680.1050/0.27.1920.1053@1920.0.1680.1050" timestamp="1581340899562" />
+  </component>
+</project>
