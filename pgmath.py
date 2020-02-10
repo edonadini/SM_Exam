@@ -3,30 +3,46 @@ import numpy as np
 import math
 
 DataRepresentation = recordclass('DataRepresentation', 'U V')
-Distances = recordclass('DistanceMatrices', 'Z D diff')
 AlgParams = recordclass('AlgParams', 'l nu tau N')
 
 
-def delta2(X):
-    x_dim = len(X.U)
-    y_dim = len(X.V)
+class Distances(recordclass):
+    Z: np.array
+    D: np.array
+    diff: np.array
 
-    distance_mat = [[np.linalg.norm(X.U[i] - X.V[j]) for j in range(x_dim)] for i in range(y_dim)]
+    def update(self, X):
+        self.Z, self.D, self.diff = Distances.initialize(X)
 
-    return np.array(distance_mat).reshape((x_dim, y_dim))
+    @classmethod
+    def initialize(cls, X):
+        d2 = Distances.delta2(X)
+        diff = Distances.difference_matrix(X)
+        z2 = Distances.zeta2(d2)
 
+        return Distances(z2, d2, diff)
 
-def zeta2(distance_mat):
-    z2_vec = [sum(np.exp(-(distance_mat[idx, :] ** 2))) for idx in len(distance_mat)]
-    return np.array(z2_vec)
+    @staticmethod
+    def delta2(X):
+        x_dim = len(X.U)
+        y_dim = len(X.V)
 
+        distance_mat = [[np.linalg.norm(X.U[i] - X.V[j]) for j in range(x_dim)] for i in range(y_dim)]
 
-def difference_matrix(X):
-    y_dim = len(X.U)
-    x_dim = len(X.V)
+        return np.array(distance_mat).reshape((x_dim, y_dim))
 
-    dif_mat = np.array([[X.V[i] - X.U[j] for j in y_dim] for i in x_dim])
-    return dif_mat.reshape((x_dim, y_dim))
+    @staticmethod
+    def zeta2(distance_mat):
+        z2_vec = [sum(np.exp(-(distance_mat[idx, :] ** 2))) for idx in len(distance_mat)]
+        return np.array(z2_vec)
+
+    @staticmethod
+    def difference_matrix(X):
+        y_dim = len(X.U)
+        x_dim = len(X.V)
+
+        dif_mat = np.array([[X.V[i] - X.U[j] for j in y_dim] for i in x_dim])
+        return dif_mat.reshape((x_dim, y_dim))
 
 
 def dlU(a, b, p, dist):
