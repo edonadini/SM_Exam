@@ -6,10 +6,10 @@ DataRepresentation = recordclass('DataRepresentation', 'U V')
 AlgParams = recordclass('AlgParams', 'l nu tau N')
 
 
-class Distances(recordclass):
-    Z: np.array
-    D: np.array
-    diff: np.array
+class Distances:
+
+    def __init__(self, X):
+        self.Z, self.D, self.diff = Distances.initialize(X)
 
     def update(self, X):
         self.Z, self.D, self.diff = Distances.initialize(X)
