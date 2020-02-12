@@ -24,16 +24,16 @@ class Distances:
 
     @staticmethod
     def delta2(X):
-        x_dim = len(X.U)
-        y_dim = len(X.V)
+        x_dim = len(X.V)
+        y_dim = len(X.U)
 
-        distance_mat = [[np.linalg.norm(X.U[i] - X.V[j]) for j in range(x_dim)] for i in range(y_dim)]
+        distance_mat = [[np.linalg.norm(X.V[i] - X.U[j]) for j in range(x_dim)] for i in range(y_dim)]
 
         return np.array(distance_mat).reshape((x_dim, y_dim))
 
     @staticmethod
     def zeta2(distance_mat):
-        z2_vec = [sum(np.exp(-(distance_mat[idx, :] ** 2))) for idx in len(distance_mat)]
+        z2_vec = [sum(np.exp(-(distance_mat[idx, :] ** 2))) for idx in range(len(distance_mat))]
         return np.array(z2_vec)
 
     @staticmethod
@@ -41,8 +41,10 @@ class Distances:
         y_dim = len(X.U)
         x_dim = len(X.V)
 
-        dif_mat = np.array([[X.V[i] - X.U[j] for j in y_dim] for i in x_dim])
-        return dif_mat.reshape((x_dim, y_dim))
+        d = len(X.U[0])
+
+        dif_mat = np.array([(X.V[i] - X.U[j]) for i in range(x_dim) for j in range(y_dim)])
+        return dif_mat.reshape((x_dim, y_dim, d))
 
 
 def dlU(a, b, p, dist):
