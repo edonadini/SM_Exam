@@ -1,9 +1,11 @@
+from collections import namedtuple
+
 from recordclass import recordclass
 import numpy as np
 import math
 
 DataRepresentation = recordclass('DataRepresentation', 'U V')
-AlgParams = recordclass('AlgParams', 'l nu tau N')
+AlgParams = namedtuple('AlgParams', 'l nu tau N n_landmarks r')
 
 
 class Distances:
