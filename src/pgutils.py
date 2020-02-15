@@ -31,16 +31,16 @@ def transition_count(S, dataset):
     return count_matrix
 
 
-def update_landmarks(S, r, n_landmarks, C, distance_mat):
-    if np.min(np.array([len(C[i]) / S for i in len(C)])) >= r:
+def update_landmarks(S, C, distances, params):
+    if np.min(np.array([len(C[i]) / S for i in len(C)])) >= params.r:
         return
 
-    landmarks = rnd.sample(range(S), n_landmarks)
+    landmarks = rnd.sample(range(S), params.n_landmarks)
 
     for s in range(S):
-        if len(C[s]) / S < r:
+        if len(C[s]) / S < params.r:
 
-            closest_idx = np.argmin(np.array([distance_mat[s, l] for l in landmarks]))
+            closest_idx = np.argmin(np.array([distances.Z[s, l] for l in landmarks]))
             closest_landmark = landmarks[closest_idx]
 
             if closest_landmark not in C[s]:
@@ -50,7 +50,7 @@ def update_landmarks(S, r, n_landmarks, C, distance_mat):
 # Mo funge, ad ogni canzone nel dataset viene associata il landmark piu vicino ed i sucessori
 # osservati nelle playlist
 
-def initialize_landmarks(n_landmarks, S, distance_matrix, T, r):
+def initialize_landmarks(S, distances, T, params):
     C = [[x for x in range(S) if T[s][x] > 0] for s in range(S)]
 
     # C = [[] for i in range(S)]
@@ -59,7 +59,7 @@ def initialize_landmarks(n_landmarks, S, distance_matrix, T, r):
     #        if T[i][j] > 0:
     #            C[i].append(j)
 
-    update_landmarks(S, r, n_landmarks, C, distance_matrix)
+    update_landmarks(S, C, distances, params)
 
     return C
 

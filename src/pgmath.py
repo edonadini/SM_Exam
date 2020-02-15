@@ -7,6 +7,12 @@ import math
 DataRepresentation = recordclass('DataRepresentation', 'U V')
 AlgParams = namedtuple('AlgParams', 'l nu tau N n_landmarks r')
 
+#X = DataRepresentation(U,V)
+#X.U
+#X.V
+#params = AlgParams(,,,,,)
+#para.s.l.nu.tau
+
 
 class Distances:
 
