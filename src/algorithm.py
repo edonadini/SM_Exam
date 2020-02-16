@@ -20,7 +20,7 @@ def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu,
     params = pm.AlgParams(lam, nu, tau, num_transition, n_landmarks, r)
 
     # landmark initialization
-    batch = pu.initialize_landmarks(songs, transition_matrix, params, position)
+    batch = pu.initialize_landmarks(songs, params, position, transition_matrix)
 
     # calculus of the distance matrix (distance matrix for norm and vector, partition function )
     space_position = pm.Distances(position, batch)
