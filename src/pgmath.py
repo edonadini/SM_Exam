@@ -21,17 +21,17 @@ AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r')
 class Distances:
 
     def __init__(self, x, chunk):
-        self.Z, self.D, self.diff = Distances.initialize(x, chunk)
+        self.Z, self.D, self.diff = Distances.initialize_aux(x, chunk)
 
     def update(self, x, chunk):
-        self.Z, self.D, self.diff = Distances.initialize(x, chunk)
+        self.Z, self.D, self.diff = Distances.initialize_aux(x, chunk)
 
     @classmethod
-    def initialize(cls, x, chunk):
+    def initialize_aux(cls, x, chunk):
         d = Distances.delta(x)
         z = Distances.zeta(d, x, chunk)
         diff = Distances.difference_matrix(x)
-        return Distances(z, d, diff)
+        return z, d, diff
 
     @staticmethod
     def delta(x):
@@ -41,9 +41,10 @@ class Distances:
 
     @staticmethod
     def zeta(d, x, chunk):
+        z_vec = []
         for a in range(len(x)):
-            for j in range(len(chunk[a])):
-                z_vec = [sum(np.exp(-(d[a, chunk[a][j]] ** 2)))]
+            sum_terms = np.array([d[a, landmark] for landmark in chunk[a]])
+            z_vec.append(np.sum(np.exp(-(sum_terms ** 2))))
         return np.array(z_vec)
 
     @staticmethod
