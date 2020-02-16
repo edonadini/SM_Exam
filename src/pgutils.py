@@ -72,7 +72,7 @@ def initialize_landmarks(songs, params, x, transition_matrix):
     landmarks = rnd.sample(range(songs), params.n_landmarks)
 
     for s in range(songs):
-        while len(chunk[s]) / songs < params.r:
+        if len(chunk[s]) / songs < params.r:
             # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
             # Z indica la partition function
             closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))

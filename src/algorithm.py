@@ -4,13 +4,13 @@ import pgutils as pu
 
 
 def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu, tau, n_landmarks, r):
-    songs = len(song_hash)
+    songs = 7#len(song_hash)
     # assignment a random position at each song in the target space
     position = np.random.rand(songs, dimension)
     position_new = np.empty_like(position)
 
     # error for stopping criteria mean square error
-    squared_error = (np.square(position_new - position)).mean(axis=None)
+    squared_error = 200
 
     # number of transitions in the training set
     transition_matrix = pu.transition_count(songs, train_dataset)

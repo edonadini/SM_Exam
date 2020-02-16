@@ -4,6 +4,7 @@
     <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +87,7 @@
       <workItem from="1581760711736" duration="3238000" />
       <workItem from="1581764107663" duration="1372000" />
       <workItem from="1581765520263" duration="6310000" />
-      <workItem from="1581801578301" duration="30592000" />
+      <workItem from="1581801578301" duration="32959000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -130,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581886300813</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ho messo chunk nella funzione ma ora ho un out of bound">
+      <created>1581886563197</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581886563197</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +161,8 @@
     <MESSAGE value="nuovo modo di implementare zeta senza rimuoverlo da distance" />
     <MESSAGE value="manca comunque un argomento se provi a runnare cosí" />
     <MESSAGE value="sto provando a far runnare passo passo i comandi dell'inizializzazione dei landm ma la funzione in se non va" />
-    <option name="LAST_COMMIT_MESSAGE" value="sto provando a far runnare passo passo i comandi dell'inizializzazione dei landm ma la funzione in se non va" />
+    <MESSAGE value="ho messo chunk nella funzione ma ora ho un out of bound" />
+    <option name="LAST_COMMIT_MESSAGE" value="ho messo chunk nella funzione ma ora ho un out of bound" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -164,10 +173,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="407" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1581760987840" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581886299374">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581886560745">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581886299374" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581886560745" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -176,22 +185,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="524" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581765793555" />
-    <state width="1237" height="295" key="GridCell.Tab.0.bottom" timestamp="1581883354254">
+    <state width="1237" height="256" key="GridCell.Tab.0.bottom" timestamp="1581887010006">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="295" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581883354254" />
-    <state width="1237" height="295" key="GridCell.Tab.0.center" timestamp="1581883354254">
+    <state width="1237" height="256" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1581887010006" />
+    <state width="1237" height="256" key="GridCell.Tab.0.center" timestamp="1581887010006">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="295" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581883354254" />
-    <state width="1237" height="295" key="GridCell.Tab.0.left" timestamp="1581883354253">
+    <state width="1237" height="256" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1581887010006" />
+    <state width="1237" height="256" key="GridCell.Tab.0.left" timestamp="1581887010006">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="295" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581883354253" />
-    <state width="1237" height="295" key="GridCell.Tab.0.right" timestamp="1581883354254">
+    <state width="1237" height="256" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1581887010006" />
+    <state width="1237" height="256" key="GridCell.Tab.0.right" timestamp="1581887010006">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="295" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581883354254" />
+    <state width="1237" height="256" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1581887010006" />
     <state x="440" y="52" key="RollbackChangesDialog" timestamp="1581801686224">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -201,10 +210,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581765817640" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581886313407">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581886569946">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581886313407" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581886569946" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581764134920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
