@@ -59,16 +59,27 @@ def update_landmarks(songs, chunk, distances, params):
 # Ad ogni canzone nel dataset viene associata il landmark piu vicino ed i sucessori
 # osservati nelle playlist
 
-def initialize_landmarks(songs, distances, transition_matrix, params):
+def initialize_landmarks(songs, transition_matrix, params, x):
     chunk = [[i for i in range(songs) if transition_matrix[s][i] > 0] for s in range(songs)]
 
-    # C = [[] for i in range(S)]
-    # for i in range(len(T)):
-    #    for j in range(len(T[i])):
-    #        if T[i][j] > 0:
-    #            C[i].append(j)
+    dim = len(x)
+    distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
+    initial_distance = np.array(distance_mat).reshape((dim, dim))
 
-    update_landmarks(songs, chunk, distances, params)
+    if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
+        return
+
+    landmarks = rnd.sample(range(songs), params.n_landmarks)
+
+    for s in range(songs):
+        if len(chunk[s]) / songs < params.r:
+            # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
+            # Z indica la partition function
+            closest_idx = np.argmin(np.array([initial_distance[s, j] for j in landmarks]))
+            closest_landmark = landmarks[closest_idx]
+
+            if closest_landmark not in chunk[s]:
+                chunk[s].append(closest_landmark)
 
     return chunk
 

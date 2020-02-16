@@ -12,9 +12,6 @@ def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu,
     # error for stopping criteria mean square error
     squared_error = (np.square(position_new - position)).mean(axis=None)
 
-    # calculus of the distance matrix (distance matrix for norm and vector, partition function )
-    space_position = pm.Distances(position)
-
     # number of transitions in the training set
     transition_matrix = pu.transition_count(songs, train_dataset)
     # total number of transition
@@ -23,7 +20,10 @@ def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu,
     params = pm.AlgParams(lam, nu, tau, num_transition, n_landmarks, r)
 
     # landmark initialization
-    batch = pu.initialize_landmarks(songs, space_position, transition_matrix, params)
+    batch = pu.initialize_landmarks(songs, transition_matrix, params, position)
+
+    # calculus of the distance matrix (distance matrix for norm and vector, partition function )
+    space_position = pm.Distances(position, batch)
 
     # try 100, 200 iterations
     for i in range(n_iter):
