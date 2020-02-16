@@ -23,7 +23,7 @@ def transition_count(songs, dataset):
     length = len(dataset)
     for row in range(length):
         for predecessor, successor in zip(dataset[row][:-1], dataset[row][1:]):
-            count_matrix[predecessor][successor] = count_matrix[predecessor][successor] + 1
+            count_matrix[predecessor, successor] = count_matrix[predecessor, successor] + 1
         # for j in range(len(dataset[row]) - 1):
         #    a = dataset[row][j];
         #    b = dataset[row][j + 1];
@@ -72,14 +72,13 @@ def initialize_landmarks(songs, params, x, transition_matrix):
     landmarks = rnd.sample(range(songs), params.n_landmarks)
 
     for s in range(songs):
-        while len(chunk[s]) / songs < params.r:
-            # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
-            # Z indica la partition function
-            closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))
-            closest_landmark = landmarks[closest_idx]
+        # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
+        # Z indica la partition function
+        closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))
+        closest_landmark = landmarks[closest_idx]
 
-            if closest_landmark not in chunk[s]:
-                chunk[s].append(closest_landmark)
+        if closest_landmark not in chunk[s]:
+            chunk[s].append(closest_landmark)
 
     return chunk
 
