@@ -73,6 +73,12 @@ def initialize_landmarks(songs, distances, transition_matrix, params):
     return chunk
 
 
+def zeta(d, x, chunk):
+    for a in range(len(x)):
+        z_vec = [sum(np.exp(-(d[a, j] ** 2))) for j in chunk[a]]
+        return np.array(z_vec)
+
+
 def update_song_entry_vector(songs, transition_matrix, position_old, position_new, params, dist):
     for s in range(songs):
         dev_term = np.array([transition_matrix[s, b] *
