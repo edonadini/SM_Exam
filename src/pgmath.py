@@ -42,8 +42,9 @@ class Distances:
     @staticmethod
     def zeta(d, x, chunk):
         for a in range(len(x)):
-            z_vec = [sum(np.exp(-(d[a, j] ** 2))) for j in chunk[a]]
-            return np.array(z_vec)
+            for j in range(len(chunk[a])):
+                z_vec = [sum(np.exp(-(d[a, chunk[a][j]] ** 2)))]
+        return np.array(z_vec)
 
     @staticmethod
     def difference_matrix(x):

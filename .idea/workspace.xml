@@ -4,7 +4,7 @@
     <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pgmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgmath.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +86,7 @@
       <workItem from="1581760711736" duration="3238000" />
       <workItem from="1581764107663" duration="1372000" />
       <workItem from="1581765520263" duration="6310000" />
-      <workItem from="1581801578301" duration="34049000" />
+      <workItem from="1581801578301" duration="36281000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -144,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581888977794</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="sto smembrando l'algorit  e lo runno passo passo">
+      <created>1581890021925</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1581890021925</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +176,8 @@
     <MESSAGE value="sto provando a far runnare passo passo i comandi dell'inizializzazione dei landm ma la funzione in se non va" />
     <MESSAGE value="ho messo chunk nella funzione ma ora ho un out of bound" />
     <MESSAGE value="prova a runnare questo" />
-    <option name="LAST_COMMIT_MESSAGE" value="prova a runnare questo" />
+    <MESSAGE value="sto smembrando l'algorit  e lo runno passo passo" />
+    <option name="LAST_COMMIT_MESSAGE" value="sto smembrando l'algorit  e lo runno passo passo" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -180,10 +188,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="407" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1581760987840" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581888975814">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581890020310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581888975814" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581890020310" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -225,10 +233,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581765817640" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581889140571">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581890035711">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581889140571" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581890035711" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581764134920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
