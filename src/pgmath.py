@@ -4,73 +4,127 @@ from recordclass import recordclass
 import numpy as np
 import math
 
-DataRepresentation = recordclass('DataRepresentation', 'U V')
-AlgParams = namedtuple('AlgParams', 'l nu tau N n_landmarks r')
+# DataRepresentation = recordclass('DataRepresentation', 'U V')
+AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r')
+"""
 
-#X = DataRepresentation(U,V)
-#X.U
-#X.V
-#params = AlgParams(,,,,,)
-#para.s.l.nu.tau
+:param lam: regularization parameter set by cross validation
+:param nu: regularization parameter for dual point model
+:param tau: tau predefined learning rate
+:param num_transition: total number of transition of songs in the set
+:param n_landmarks: number of landmarks chose in the training song set
+:param r: threshold between 0 and 1, represents the amount of training data set to use
+
+"""
 
 
 class Distances:
 
-    def __init__(self, X):
-        self.Z, self.D, self.diff = Distances.initialize(X)
+    def __init__(self, x):
+        self.Z, self.D, self.diff = Distances.initialize(x)
 
-    def update(self, X):
-        self.Z, self.D, self.diff = Distances.initialize(X)
+    def update(self, x):
+        self.Z, self.D, self.diff = Distances.initialize(x)
 
     @classmethod
-    def initialize(cls, X):
-        d2 = Distances.delta2(X)
-        diff = Distances.difference_matrix(X)
+    def initialize(cls, x):
+        d = Distances.delta(x)
+        z = Distances.zeta(d)
+        diff = Distances.difference_matrix(x)
+        return Distances(z, d, diff)
+
+    @staticmethod
+    def delta(x):
+        dim = len(x)
+        distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
+        return np.array(distance_mat).reshape((dim, dim))
+
+    @staticmethod
+    def zeta(d, chunk):
+        z_vec = [sum(np.exp(-(d[:, idx] ** 2))) for idx in range(len(chunk))]
+        return np.array(z_vec)
+
+    @staticmethod
+    def difference_matrix(x):
+        dim = len(x)
+        d = len(x[0])
+
+        dif_mat = np.array([(x[i] - x[j]) for i in range(dim) for j in range(dim)])
+        return dif_mat.reshape((dim, dim, d))
+
+
+def loss_derivative_on_entry(a, b, p, dist):
+    if a != p:
+        return 0
+    s_term = np.array([math.exp(-dist.D[a, j] ** 2) * dist.diff[a, j, :] for j in range(len(dist.Z))])
+    return 2 * (-dist.diff[a, b, :] + np.sum(s_term) / dist.Z[a])
+
+
+def derivative_of_regularization_term_on_entry(x, p, params):
+    return 2 * params.l * x[p]
+
+
+"""
+    dual point representation
+    class Distances:
+
+    def __init__(self, x):
+        self.Z, self.D, self.diff = Distances.initialize(x)
+
+    def update(self, x):
+        self.Z, self.D, self.diff = Distances.initialize(x)
+    
+    @classmethod
+    def initialize(cls, self):
+        d2 = Distances.delta2(self)
+        diff = Distances.difference_matrix(self)
         z2 = Distances.zeta2(d2)
 
         return Distances(z2, d2, diff)
-
+        
     @staticmethod
-    def delta2(X):
-        x_dim = len(X.V)
-        y_dim = len(X.U)
+    def delta2(self):
+        x_dim = len(self.V)
+        y_dim = len(self.U)
 
-        distance_mat = [[np.linalg.norm(X.V[i] - X.U[j]) for j in range(x_dim)] for i in range(y_dim)]
+        distance_mat = [[np.linalg.norm(self.V[i] - self.U[j]) for j in range(x_dim)] for i in range(y_dim)]
 
         return np.array(distance_mat).reshape((x_dim, y_dim))
 
     @staticmethod
-    def zeta2(distance_mat):
-        z2_vec = [sum(np.exp(-(distance_mat[idx, :] ** 2))) for idx in range(len(distance_mat))]
+#come faccio a passargli il landmark?
+    def zeta2(d2, chunk):
+        z2_vec = [sum(np.exp(-(d2[:, idx] ** 2))) for idx in range(len(chunk))]
         return np.array(z2_vec)
 
     @staticmethod
-    def difference_matrix(X):
-        y_dim = len(X.U)
-        x_dim = len(X.V)
+    def difference_matrix(self):
+        y_dim = len(self.U)
+        x_dim = len(self.V)
 
-        d = len(X.U[0])
+        d = len(self.U[0])
 
-        dif_mat = np.array([(X.V[i] - X.U[j]) for i in range(x_dim) for j in range(y_dim)])
+        dif_mat = np.array([(self.V[i] - self.U[j]) for i in range(x_dim) for j in range(y_dim)])
         return dif_mat.reshape((x_dim, y_dim, d))
 
 
-def dlU(a, b, p, dist):
+def loss_derivative_on_entry(a, b, p, dist):
     if a != p:
         return 0
-    s_term = np.array([math.exp(-dist.D[a, l] ** 2) * dist.diff[a, l, :] for l in range(len(dist.Z))])
+    s_term = np.array([math.exp(-dist.D[a, j] ** 2) * dist.diff[a, j, :] for j in range(len(dist.Z))])
     return 2 * (-dist.diff[a, b, :] + np.sum(s_term) / dist.Z[a])
 
 
-def dlV(a, b, q, dist):
+def loss_derivative_on_exit(a, b, q, dist):
     if b != q:
         return 0
     return 2 * (dist.diff[a, b] - (math.exp(-dist.D[a, q] ** 2) * dist.diff[a, q]) / dist.Z[a])
 
 
-def doU(X, p, params):
-    return 2 * params.l * X.U[p] - 2 * params.nu * (X.V[p] - X.U[p])
+def derivative_of_regularization_term_on_entry(self, p, params):
+    return 2 * params.l * self.U[p] - 2 * params.nu * (self.V[p] - self.U[p])
 
 
-def doV(X, p, params):
-    return 2 * params.l * X.V[p] + 2 * params.nu * (X.V[p] - X.U[p])
+def derivative_of_regularization_term_on_exit(self, p, params):
+    return 2 * params.l * self.V[p] + 2 * params.nu * (self.V[p] - self.U[p])
+"""
