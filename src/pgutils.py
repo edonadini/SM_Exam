@@ -63,11 +63,12 @@ def initialize_landmarks(songs, transition_matrix, params, x):
     chunk = [[i for i in range(songs) if transition_matrix[s][i] > 0] for s in range(songs)]
 
     dim = len(x)
-    distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
-    initial_distance = np.array(distance_mat).reshape((dim, dim))
 
     if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
         return
+    
+    distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
+    initial_distance = np.array(distance_mat).reshape((dim, dim))
 
     landmarks = rnd.sample(range(songs), params.n_landmarks)
 
