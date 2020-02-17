@@ -84,15 +84,17 @@ def initialize_landmarks(songs, params, x, transition_matrix):
     return chunk
 
 
-def update_song_entry_vector(songs, transition_matrix, position_old, position_new, params, dist):
+def update_song_entry_vector(songs, transition_matrix, position_old, params, dist):
+
+    position_new = np.empty_like(position_old)
     for s in range(songs):
         dev_term = np.array([transition_matrix[s, b] *
                              pgm.loss_derivative_on_entry(s, b, s, dist) for b in range(songs)])
 
         position_new[s] = position_old[s] + (params.tau / params.num_transition) * \
                           (sum(dev_term) - pgm.derivative_of_regularization_term_on_entry(position_old, s, params))
-    return position_new
 
+    return position_new
 
 """
 # nel single points questo non mi serve

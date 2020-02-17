@@ -16,18 +16,18 @@ def single_point_algorithm(song_hash, transition_matrix, params):
     batch = pu.initialize_landmarks(songs, params, position, transition_matrix)
 
     # calculus of the distance matrix (distance matrix for norm and vector, partition function )
-    space_position = pm.Distances(position, batch)
+    distances = pm.Distances(position, batch)
 
     # try 100, 200 iterations
     for i in range(params.n_iter):
+        print(i)
         # empirically update landmarks every 10 iterations
         # A iteration means a full pass on the training dataset.
         # fix the landmarks after 100 iteration to ensure convergence
         if i % 10 == 0 and i < 100:
-            pu.update_landmarks(songs, batch, space_position, params)
+            pu.update_landmarks(songs, batch, distances, params)
         # update the position of the song in the space
-        position_new = pu.update_song_entry_vector(songs, transition_matrix, position, position_new, params,
-                                                   space_position)
+        position_new = pu.update_song_entry_vector(songs, transition_matrix, position, params, distances)
         squared_error_new = (np.square(position_new - position)).mean(axis=None)
         # stop criteria
         if abs(squared_error_new - squared_error) < 0.01 * squared_error:
