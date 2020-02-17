@@ -2,7 +2,7 @@ from collections import namedtuple
 
 from recordclass import recordclass
 import numpy as np
-import math
+import math as mt
 
 # DataRepresentation = recordclass('DataRepresentation', 'U V')
 AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r dimension n_iter')
@@ -59,7 +59,7 @@ class Distances:
 def loss_derivative_on_entry(a, b, p, dist):
     if a != p:
         return 0
-    s_term = np.array([math.exp(-dist.D[a, j] ** 2) * dist.diff[a, j, :] for j in range(len(dist.Z))])
+    s_term = np.array([mt.math.exp(-dist.D[a, j] ** 2) * dist.diff[a, j, :] for j in range(len(dist.Z))])
     return 2 * (-dist.diff[a, b, :] + np.sum(s_term) / dist.Z[a])
 
 
@@ -67,6 +67,13 @@ def derivative_of_regularization_term_on_entry(x, p, params):
     return 2 * params.lam * x[p]
 
 
+def log_like(test_set, probability_matrix):
+    count = 0
+    for i in range(len(test_set)):
+        for predecessor, successor in zip(test_set[i][:-1], test_set[i][1:]):
+            count = count + mt.log(probability_matrix[predecessor, successor])
+
+    return count
 """
     dual point representation
     class Distances:
