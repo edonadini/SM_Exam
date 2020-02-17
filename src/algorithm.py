@@ -4,7 +4,7 @@ import pgutils as pu
 
 
 def single_point_algorithm(song_hash, transition_matrix, params):
-    songs = 7#len(song_hash)
+    songs = len(song_hash)
     # assignment a random position at each song in the target space
     position = np.random.rand(songs, params.dimension)
     position_new = np.empty_like(position)
