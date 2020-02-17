@@ -5,7 +5,7 @@ import numpy as np
 import math
 
 # DataRepresentation = recordclass('DataRepresentation', 'U V')
-AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r')
+AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r dimension n_iter')
 """
 
 :param lam: regularization parameter set by cross validation
@@ -64,7 +64,7 @@ def loss_derivative_on_entry(a, b, p, dist):
 
 
 def derivative_of_regularization_term_on_entry(x, p, params):
-    return 2 * params.l * x[p]
+    return 2 * params.lam * x[p]
 
 
 """

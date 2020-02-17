@@ -3,21 +3,14 @@ import pgmath as pm
 import pgutils as pu
 
 
-def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu, tau, n_landmarks, r):
+def single_point_algorithm(song_hash, transition_matrix, params):
     songs = 7#len(song_hash)
     # assignment a random position at each song in the target space
-    position = np.random.rand(songs, dimension)
+    position = np.random.rand(songs, params.dimension)
     position_new = np.empty_like(position)
 
     # error for stopping criteria mean square error
     squared_error = 200
-
-    # number of transitions in the training set
-    transition_matrix = pu.transition_count(songs, train_dataset)
-    # total number of transition
-    num_transition = np.sum(transition_matrix)
-    # setting parameters
-    params = pm.AlgParams(lam, nu, tau, num_transition, n_landmarks, r)
 
     # landmark initialization
     batch = pu.initialize_landmarks(songs, params, position, transition_matrix)
@@ -26,7 +19,7 @@ def single_point_algorithm(song_hash, dimension, train_dataset, n_iter, lam, nu,
     space_position = pm.Distances(position, batch)
 
     # try 100, 200 iterations
-    for i in range(n_iter):
+    for i in range(params.n_iter):
         # empirically update landmarks every 10 iterations
         # A iteration means a full pass on the training dataset.
         # fix the landmarks after 100 iteration to ensure convergence

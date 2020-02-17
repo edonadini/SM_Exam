@@ -84,18 +84,12 @@ def initialize_landmarks(songs, params, x, transition_matrix):
     return chunk
 
 
-def zeta(d, x, chunk):
-    for a in range(len(x)):
-        z_vec = [sum(np.exp(-(d[a, j] ** 2))) for j in chunk[a]]
-        return np.array(z_vec)
-
-
 def update_song_entry_vector(songs, transition_matrix, position_old, position_new, params, dist):
     for s in range(songs):
         dev_term = np.array([transition_matrix[s, b] *
                              pgm.loss_derivative_on_entry(s, b, s, dist) for b in range(songs)])
 
-        position_new[s] = position_old[s] + (params.tau / params.N) * \
+        position_new[s] = position_old[s] + (params.tau / params.num_transition) * \
                           (sum(dev_term) - pgm.derivative_of_regularization_term_on_entry(position_old, s, params))
     return position_new
 
