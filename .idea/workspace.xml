@@ -4,8 +4,6 @@
     <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,7 @@
       <workItem from="1581764107663" duration="1372000" />
       <workItem from="1581765520263" duration="6310000" />
       <workItem from="1581801578301" duration="38757000" />
-      <workItem from="1581896437605" duration="3731000" />
+      <workItem from="1581896437605" duration="5191000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -160,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581893208862</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sistemato, che figa che sono">
+      <created>1581900434383</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1581900434383</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +192,8 @@
     <MESSAGE value="prova a runnare questo" />
     <MESSAGE value="sto smembrando l'algorit  e lo runno passo passo" />
     <MESSAGE value="metto z come funzione" />
-    <option name="LAST_COMMIT_MESSAGE" value="metto z come funzione" />
+    <MESSAGE value="sistemato, che figa che sono" />
+    <option name="LAST_COMMIT_MESSAGE" value="sistemato, che figa che sono" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -202,10 +208,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="407" y="144" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1581760987840" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581893207213">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1581900418979">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581893207213" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581900418979" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -247,10 +253,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581894633118">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581900448318">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581894633118" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581900448318" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581764134920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
