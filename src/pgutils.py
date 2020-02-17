@@ -1,5 +1,6 @@
 import numpy as np
 import random as rnd
+import math as mt
 from src import pgmath as pgm
 
 
@@ -85,7 +86,6 @@ def initialize_landmarks(songs, params, x, transition_matrix):
 
 
 def update_song_entry_vector(songs, transition_matrix, position_old, params, dist):
-
     position_new = np.empty_like(position_old)
     for s in range(songs):
         dev_term = np.array([transition_matrix[s, b] *
@@ -95,6 +95,41 @@ def update_song_entry_vector(songs, transition_matrix, position_old, params, dis
                           (sum(dev_term) - pgm.derivative_of_regularization_term_on_entry(position_old, s, params))
 
     return position_new
+
+
+def log_like(test_set, probability_matrix):
+    count = 0
+    for i in range(len(test_set)):
+        for predecessor, successor in zip(test_set[i][:-1], test_set[i][1:]):
+            count = count + mt.log(probability_matrix[predecessor, successor])
+
+    return count
+
+
+def playlist_generator(num_song, current_song, song_hash, prob_matrix):
+    # Start of the time
+    t = 0
+    # The music playlist
+    playlist = [current_song]
+    # initial probability
+    prob = 1
+    # while loop - the Markov chain did not reach 5 we go on
+    while t < num_song:
+        # Incrementation of time
+        t = t + 1
+        # List of played songs
+        playlist.append(np.random.choice(np.array(song_hash.iloc[0:7][0]), replace=True, p=prob_matrix[current_song]))
+        prob = prob * prob_matrix[current_song, playlist[-1]]
+        current_song = playlist[-1]
+
+    # Printing the path of the Markov chain
+    # Printing the number of steps
+    # print(len(X)-1)
+    titles = [song_hash.iloc[i][1] for i in playlist]
+    print("Song in the playlist: ", titles)
+    print("End state after ", num_song, " days: ", song_hash.iloc[current_song][1])
+    print("Probability of the possible sequence of states: ", str(prob))
+
 
 """
 # nel single points questo non mi serve

@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pgmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgmath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
       <workItem from="1581764107663" duration="1372000" />
       <workItem from="1581765520263" duration="6310000" />
       <workItem from="1581801578301" duration="38757000" />
-      <workItem from="1581896437605" duration="14354000" />
+      <workItem from="1581896437605" duration="15208000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -180,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1581902251695</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="ho creato una fun per creare playlist">
+      <created>1581941246004</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1581941246004</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,7 +217,8 @@
     <MESSAGE value="metto z come funzione" />
     <MESSAGE value="sistemato, che figa che sono" />
     <MESSAGE value="grazie cuoricino" />
-    <option name="LAST_COMMIT_MESSAGE" value="grazie cuoricino" />
+    <MESSAGE value="ho creato una fun per creare playlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="ho creato una fun per creare playlist" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -273,10 +282,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581902259950">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1581941263181">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581902259950" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1581941263181" />
     <state x="339" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1581764134920">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
