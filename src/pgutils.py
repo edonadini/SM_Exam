@@ -1,7 +1,7 @@
 import numpy as np
 import random as rnd
 import math as mt
-from src import pgmath as pgm
+import pgmath as pgm
 
 
 def int_mapping(s):

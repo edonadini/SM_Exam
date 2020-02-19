@@ -9,11 +9,12 @@ n_iters = [100, 200]
 n_song = 4
 start_song = 5
 
-dimension = sys.argv[0]
-lam = sys.argv[1]
-r =sys.argv[2]
-n_iter =sys.argv[3]
-n_song =sys.argv[4]
-start_song =sys.argv[5]
+
+dimension = int(sys.argv[1])
+lam = float(sys.argv[2])
+r = float(sys.argv[3])
+n_iter = int(sys.argv[4])
+n_song = int(sys.argv[5])
+start_song = int(sys.argv[6])
 
 sm.test(directory, dimension, lam, r, n_iter, n_song, start_song)
