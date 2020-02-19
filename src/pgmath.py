@@ -4,11 +4,10 @@ from collections import namedtuple
 import numpy as np
 import math as mt
 
-AlgParams = namedtuple('AlgParams', 'lam nu tau num_transition n_landmarks r dimension n_iter')
+AlgParams = namedtuple('AlgParams', 'lam tau num_transition n_landmarks r dimension n_iter')
 """
 
 :param lam: regularization parameter set by cross validation
-:param nu: regularization parameter for dual point model
 :param tau: tau predefined learning rate
 :param num_transition: total number of transition of songs in the set
 :param n_landmarks: number of landmarks chose in the training song set
@@ -55,12 +54,13 @@ class Distances:
         return dif_mat.reshape((dim, dim, d))
 
 
-def loss_derivative_on_entry(a, b, p, dist):
-    if a != p:
-        return 0
-    s_term = np.array([mt.exp(-dist.D[a, j] ** 2) * dist.diff[a, j, :] for j in range(len(dist.Z))])
-    return 2 * (-dist.diff[a, b, :] + np.sum(s_term) / dist.Z[a])
+def loss_derivative_on_entry(dist):
+    _, _, d = dist.diff.shape
+    mul_terms = np.repeat(np.exp(-np.square(dist.D))[:, :, np.newaxis], d, axis=2)
+    sum_terms = np.sum(np.multiply(mul_terms, dist.diff), axis=1)
+    sum_terms = np.divide(sum_terms, np.repeat(dist.Z[:, np.newaxis], d, axis=1))
+    return 2 * (-dist.diff * sum_terms)
 
 
-def derivative_of_regularization_term_on_entry(x, p, params):
-    return 2 * params.lam * x[p]
+def derivative_of_regularization_term_on_entry(x, params):
+    return np.array(2 * params.lam * x)

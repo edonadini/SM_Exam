@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
+    <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="risolto ascii">
+      <change afterPath="$PROJECT_DIR$/src/pglaststeps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_big/song_hash.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_big/tag_hash.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_big/tags.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_big/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_big/train.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_complete/song_hash.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_complete/tag_hash.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_complete/tags.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_complete/test.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/yes_complete/train.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pgmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgmath.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilitymain.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilitymain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stochastic_modelling.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilitymain.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +63,9 @@
       <module name="PGenerator" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -123,7 +138,11 @@
       <workItem from="1582100431112" duration="287000" />
       <workItem from="1582100740775" duration="420000" />
       <workItem from="1582101183305" duration="2062000" />
-      <workItem from="1582106069525" duration="2906000" />
+      <workItem from="1582106069525" duration="4900000" />
+      <workItem from="1582116027545" duration="577000" />
+      <workItem from="1582116620730" duration="6579000" />
+      <workItem from="1582124520703" duration="1024000" />
+      <workItem from="1582125899250" duration="4608000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -251,7 +270,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582108095480</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="risolto ascii">
+      <created>1582109141980</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1582109141980</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,7 +309,8 @@
     <MESSAGE value="ho creato una fun per creare playlist" />
     <MESSAGE value="ordinato" />
     <MESSAGE value="ordinato ancora meglio" />
-    <option name="LAST_COMMIT_MESSAGE" value="ordinato ancora meglio" />
+    <MESSAGE value="risolto ascii" />
+    <option name="LAST_COMMIT_MESSAGE" value="risolto ascii" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -302,10 +329,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="94" key="#xdebugger.XInspectDialog/0.0.1280.680@0.0.1280.680" timestamp="1581940275687" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582109123571">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582130098416">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582109123571" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582130098416" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -314,22 +341,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="524" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581765793555" />
-    <state width="1237" height="322" key="GridCell.Tab.0.bottom" timestamp="1582106314785">
+    <state width="1237" height="97" key="GridCell.Tab.0.bottom" timestamp="1582116784538">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="322" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582106314785" />
-    <state width="1237" height="322" key="GridCell.Tab.0.center" timestamp="1582106314784">
+    <state width="1237" height="97" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582116784538" />
+    <state width="1237" height="97" key="GridCell.Tab.0.center" timestamp="1582116784538">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="322" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582106314784" />
-    <state width="1237" height="322" key="GridCell.Tab.0.left" timestamp="1582106314784">
+    <state width="1237" height="97" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582116784538" />
+    <state width="1237" height="97" key="GridCell.Tab.0.left" timestamp="1582116784538">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="322" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582106314784" />
-    <state width="1237" height="322" key="GridCell.Tab.0.right" timestamp="1582106314784">
+    <state width="1237" height="97" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582116784538" />
+    <state width="1237" height="97" key="GridCell.Tab.0.right" timestamp="1582116784538">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="322" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582106314784" />
+    <state width="1237" height="97" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582116784538" />
     <state x="123" y="51" key="MergeDialog" timestamp="1581889060436">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -347,10 +374,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582108104023">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582109149468">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582108104023" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582109149468" />
     <state width="646" height="346" key="XDebugger.FullValuePopup" timestamp="1582068196199">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
