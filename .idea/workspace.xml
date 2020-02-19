@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilitymain.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilitymain.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +119,7 @@
       <workItem from="1582100431112" duration="287000" />
       <workItem from="1582100740775" duration="420000" />
       <workItem from="1582101183305" duration="2062000" />
-      <workItem from="1582106069525" duration="1906000" />
+      <workItem from="1582106069525" duration="2016000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -235,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582105624532</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="ordinato ancora meglio">
+      <created>1582107997915</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1582107997915</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +271,8 @@
     <MESSAGE value="grazie cuoricino" />
     <MESSAGE value="ho creato una fun per creare playlist" />
     <MESSAGE value="ordinato" />
-    <option name="LAST_COMMIT_MESSAGE" value="ordinato" />
+    <MESSAGE value="ordinato ancora meglio" />
+    <option name="LAST_COMMIT_MESSAGE" value="ordinato ancora meglio" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -285,10 +291,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="94" key="#xdebugger.XInspectDialog/0.0.1280.680@0.0.1280.680" timestamp="1581940275687" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582105620372">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582107994043">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582105620372" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582107994043" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
