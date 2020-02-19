@@ -5,6 +5,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pgmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgmath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilitymain.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilitymain.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +123,7 @@
       <workItem from="1582100431112" duration="287000" />
       <workItem from="1582100740775" duration="420000" />
       <workItem from="1582101183305" duration="2062000" />
-      <workItem from="1582106069525" duration="2016000" />
+      <workItem from="1582106069525" duration="2906000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -240,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582107997915</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="ordinato ancora meglio">
+      <created>1582108095480</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1582108095480</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,10 +302,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="94" key="#xdebugger.XInspectDialog/0.0.1280.680@0.0.1280.680" timestamp="1581940275687" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582107994043">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582109123571">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582107994043" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582109123571" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -336,10 +347,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582105670272">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582108104023">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582105670272" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582108104023" />
     <state width="646" height="346" key="XDebugger.FullValuePopup" timestamp="1582068196199">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -356,9 +367,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="451" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1581897794786" />
-    <state x="554" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1581935527144">
+    <state x="554" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1582109046756">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="554" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581935527144" />
+    <state x="554" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1582109046756" />
   </component>
 </project>

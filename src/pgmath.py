@@ -1,3 +1,5 @@
+# coding=utf-8
+
 from collections import namedtuple
 import numpy as np
 import math as mt

@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import utilitymain as sm
 import sys
 
