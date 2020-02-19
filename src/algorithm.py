@@ -4,7 +4,7 @@ import pgutils as pu
 
 
 def single_point_algorithm(song_hash, transition_matrix, params):
-    songs = len(song_hash)
+    songs = 468 #len(song_hash)
     # assignment a random position at each song in the target space
     position = np.random.rand(songs, params.dimension)
     position_new = np.empty_like(position)
@@ -26,8 +26,11 @@ def single_point_algorithm(song_hash, transition_matrix, params):
         # fix the landmarks after 100 iteration to ensure convergence
         if i % 10 == 0 and i < 100:
             pu.update_landmarks(songs, batch, distances, params)
+
+        print('after update landmarks')
         # update the position of the song in the space
         position_new = pu.update_song_entry_vector(songs, transition_matrix, position, params, distances)
+        print('after update vector')
         squared_error_new = (np.square(position_new - position)).mean(axis=None)
         # stop criteria
         if abs(squared_error_new - squared_error) < 0.01 * squared_error:

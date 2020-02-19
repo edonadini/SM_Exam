@@ -47,7 +47,7 @@ def update_landmarks(songs, chunk, distances, params):
     landmarks = rnd.sample(range(songs), params.n_landmarks)
 
     for s in range(songs):
-        while len(chunk[s]) / songs < params.r:
+        if len(chunk[s]) / songs < params.r:
             # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
             # Z indica la partition function
             closest_idx = np.argmin(np.array([distances.D[s, j] for j in landmarks]))
@@ -74,8 +74,6 @@ def initialize_landmarks(songs, params, x, transition_matrix):
 
     for s in range(songs):
         if len(chunk[s]) / songs < params.r:
-            # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
-            # Z indica la partition function
             closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))
             closest_landmark = landmarks[closest_idx]
 
@@ -86,14 +84,17 @@ def initialize_landmarks(songs, params, x, transition_matrix):
 
 
 def update_song_entry_vector(songs, transition_matrix, position_old, params, dist):
+    print('inside update vector')
     position_new = np.empty_like(position_old)
     for s in range(songs):
+        print('updating', s)
         dev_term = np.array([transition_matrix[s, b] *
                              pgm.loss_derivative_on_entry(s, b, s, dist) for b in range(songs)])
-
+        print('after terms')
         position_new[s] = position_old[s] + (params.tau / params.num_transition) * \
                           (sum(dev_term) - pgm.derivative_of_regularization_term_on_entry(position_old, s, params))
 
+        print('updated', s)
     return position_new
 
 
