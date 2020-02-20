@@ -14,11 +14,12 @@ def latent_representation(root_dir, dimension, lam, r, n_iter, tau):
         train_data = f.readlines()
     train_dataset = pg.data_to_list(train_data[2:])
 
-    songs = 3168
+    train_dataset = train_dataset[:400]
+    songs = 2200
 
     max(train_dataset)
 
-    n_landmarks = 50
+    n_landmarks = 25
 
     jump_matrix = pg.transition_count(songs, train_dataset)
     num_transition = np.sum(jump_matrix)
@@ -28,18 +29,19 @@ def latent_representation(root_dir, dimension, lam, r, n_iter, tau):
     tic = time.perf_counter()
     X = al.single_point_algorithm(songs, jump_matrix, params)
     toc = time.perf_counter()
-    savetxt('latent_representation_50.csv', X, delimiter=' ')
+    savetxt('latent_representation2200.csv', X, delimiter=' ')
     print("total time {", toc - tic, ":0.4f} seconds")
 
 
-def tran_matrix(songs, x):
+def tran_matrix(songs):
+    x = np.genfromtxt(r'C:\Users\eleon\Desktop\SM_Exam\src\latent_representation2200.csv', delimiter=' ')
     dummy_landmarks = [[i for i in range(songs)] for j in range(songs)]
     d2 = pm.Distances.delta(x)
-    prob_matrix = np.exp(-d2) / pm.Distances.zeta(d2, x, dummy_landmarks)[:, np.newaxis]
+    prob_matrix = np.exp(-d2) / pm.Distances.zeta(d2, x, dummy_landmarks)
     cum_sum = np.sum(prob_matrix, axis=1)
     prob_matrix = prob_matrix / cum_sum[:, np.newaxis]
 
-    savetxt('prob_matrix_50.csv', prob_matrix, delimiter=' ')
+    savetxt('prob_matrix_2200.csv', prob_matrix, delimiter=',')
 
 
 def evaluation_loss(root_dir, songs, prob_matrix):

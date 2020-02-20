@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="risolto ascii">
-      <change afterPath="$PROJECT_DIR$/src/pglaststeps.py" afterDir="false" />
+    <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_big/song_hash.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_big/tag_hash.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_big/tags.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_big/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_big/train.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_complete/song_hash.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_complete/tag_hash.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_complete/tags.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_complete/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/yes_complete/train.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/algorithm.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pgmath.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgmath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pglaststeps.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pglaststeps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/stochastic_modelling.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utilitymain.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +129,7 @@
       <workItem from="1582116027545" duration="577000" />
       <workItem from="1582116620730" duration="6579000" />
       <workItem from="1582124520703" duration="1024000" />
-      <workItem from="1582125899250" duration="4608000" />
+      <workItem from="1582125899250" duration="14072000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -277,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582109141980</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="migliorie">
+      <created>1582130548523</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1582130548523</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,7 +304,8 @@
     <MESSAGE value="ordinato" />
     <MESSAGE value="ordinato ancora meglio" />
     <MESSAGE value="risolto ascii" />
-    <option name="LAST_COMMIT_MESSAGE" value="risolto ascii" />
+    <MESSAGE value="migliorie" />
+    <option name="LAST_COMMIT_MESSAGE" value="migliorie" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -329,10 +324,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="94" key="#xdebugger.XInspectDialog/0.0.1280.680@0.0.1280.680" timestamp="1581940275687" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582130098416">
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582130546939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582130098416" />
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582130546939" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -374,10 +369,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582109149468">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582130563081">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582109149468" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582130563081" />
     <state width="646" height="346" key="XDebugger.FullValuePopup" timestamp="1582068196199">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
