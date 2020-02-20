@@ -5,7 +5,8 @@ import random as rnd
 import math as mt
 import pgmath as pgm
 import pandas as pd
-import  os
+import os
+
 
 def int_mapping(s):
     return list(map(int, s.split(" ")[:-1]))
@@ -106,10 +107,10 @@ def log_like(test_set, probability_matrix):
     return count
 
 
-def playlist_generator(num_song, current_song, num_can, prob_matrix):
-    #prob_matrix = np.genfromtxt(r'C:\Users\eleon\Desktop\SM_Exam\src\latent_representation2200.csv', delimiter=',')
+def playlist_generator(num_song, current_song, prob_matrix, song_hash):
+    # prob_matrix = np.genfromtxt(r'C:\Users\eleon\Desktop\SM_Exam\src\latent_representation2200.csv', delimiter=',')
     root_dir = r'C:\Users\eleon\PycharmProjects\SM_Exam\data\yes_small'
-    song_hash = pd.read_csv(os.path.join(root_dir, "song_hash.txt"), sep="\t", header=None)
+    #song_hash = pd.read_csv(os.path.join(root_dir, "song_hash.txt"), sep="\t", header=None)
 
     # Start of the time
     t = 0
@@ -122,7 +123,8 @@ def playlist_generator(num_song, current_song, num_can, prob_matrix):
         # Incrementation of time
         t = t + 1
         # List of played songs
-        playlist.append(np.random.choice(np.array(song_hash.iloc[0:num_can][0]), replace=True, p=prob_matrix[current_song]))
+        playlist.append(
+            np.random.choice(np.array(song_hash.iloc[0:2200][0]), replace=True, p=prob_matrix[current_song]))
         prob = prob * prob_matrix[current_song, playlist[-1]]
         current_song = playlist[-1]
 
