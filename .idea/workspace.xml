@@ -4,7 +4,6 @@
     <list default="true" id="4714365b-aa91-47f5-b3ec-f7d6d733fee2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlaylistGenerator.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pgutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pgutils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RunManager">
@@ -127,7 +127,7 @@
       <workItem from="1582116620730" duration="6579000" />
       <workItem from="1582124520703" duration="1024000" />
       <workItem from="1582125899250" duration="14072000" />
-      <workItem from="1582180662922" duration="2606000" />
+      <workItem from="1582180662922" duration="5733000" />
     </task>
     <task id="LOCAL-00001" summary="changed AlgParams to namedtuple and added some parameters">
       <created>1581762355834</created>
@@ -269,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582130548523</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="first playlist">
+      <created>1582183408040</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1582183408040</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,7 +310,8 @@
     <MESSAGE value="ordinato ancora meglio" />
     <MESSAGE value="risolto ascii" />
     <MESSAGE value="migliorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="migliorie" />
+    <MESSAGE value="first playlist" />
+    <option name="LAST_COMMIT_MESSAGE" value="first playlist" />
   </component>
   <component name="WindowStateProjectService">
     <state x="234" y="0" key="#Inspections" timestamp="1581860375958">
@@ -322,10 +330,14 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="0" y="94" key="#xdebugger.XInspectDialog/0.0.1280.680@0.0.1280.680" timestamp="1581940275687" />
-    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582158087322">
+    <state x="400" y="212" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1582183575052">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582158087322" />
+    <state x="400" y="212" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1582183575052" />
+    <state x="0" y="0" key="CommitChangelistDialog2" timestamp="1582183406659">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1582183406659" />
     <state x="94" y="94" width="1093" height="493" key="DiffContextDialog" timestamp="1581802123349">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -367,10 +379,10 @@
     </state>
     <state x="207" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1581894867262" />
     <state x="329" y="172" key="SettingsEditor/0.27.1680.1023/1680.0.1920.1080@0.27.1680.1023" timestamp="1581322210168" />
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582158097047">
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2" timestamp="1582183556603">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582158097047" />
+    <state x="234" y="74" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1582183556603" />
     <state width="646" height="346" key="XDebugger.FullValuePopup" timestamp="1582068196199">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
