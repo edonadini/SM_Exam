@@ -1,6 +1,9 @@
 import numpy as np
 import random as rnd
-from src import pgmath as pgm
+import math as mt
+import pgmath as pgm
+import pandas as pd
+import os
 
 
 def int_mapping(s):
@@ -24,10 +27,6 @@ def transition_count(songs, dataset):
     for row in range(length):
         for predecessor, successor in zip(dataset[row][:-1], dataset[row][1:]):
             count_matrix[predecessor][successor] = count_matrix[predecessor][successor] + 1
-        # for j in range(len(dataset[row]) - 1):
-        #    a = dataset[row][j];
-        #    b = dataset[row][j + 1];
-        #    count_matrix[a][b] = count_matrix[a][b] + 1
     return count_matrix
 
 
@@ -66,17 +65,16 @@ def initialize_landmarks(songs, transition_matrix, params, x):
 
     if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
         return
-    
+
     distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
     initial_distance = np.array(distance_mat).reshape((dim, dim))
+        return chunk
 
     landmarks = rnd.sample(range(songs), params.n_landmarks)
 
     for s in range(songs):
         if len(chunk[s]) / songs < params.r:
-            # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
-            # Z indica la partition function
-            closest_idx = np.argmin(np.array([initial_distance[s, j] for j in landmarks]))
+            closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))
             closest_landmark = landmarks[closest_idx]
 
             if closest_landmark not in chunk[s]:
@@ -85,32 +83,55 @@ def initialize_landmarks(songs, transition_matrix, params, x):
     return chunk
 
 
-def zeta(d, x, chunk):
-    for a in range(len(x)):
-        z_vec = [sum(np.exp(-(d[a, j] ** 2))) for j in chunk[a]]
-        return np.array(z_vec)
+def update_song_entry_vector(transition_matrix, position_old, params, dist):
+    _, d = position_old.shape
+    regularization_derivative = pgm.derivative_of_regularization_term_on_entry(position_old, params)
+    mul_term = (params.tau / params.num_transition)
 
+    loss_derivatives = pgm.loss_derivative_on_entry(dist)
 
-def update_song_entry_vector(songs, transition_matrix, position_old, position_new, params, dist):
-    for s in range(songs):
-        dev_term = np.array([transition_matrix[s, b] *
-                             pgm.loss_derivative_on_entry(s, b, s, dist) for b in range(songs)])
+    sum_dev_term = np.multiply(np.repeat(transition_matrix[:, :, np.newaxis], d, axis=2), loss_derivatives)
+    sum_dev_term = np.sum(sum_dev_term, axis=1)
 
-        position_new[s] = position_old[s] + (params.tau / params.N) * \
-                          (sum(dev_term) - pgm.derivative_of_regularization_term_on_entry(position_old, s, params))
+    position_new = position_old + mul_term * np.subtract(sum_dev_term, regularization_derivative)
+
     return position_new
 
 
-"""
-# nel single points questo non mi serve
-def update_song_exit_vector(S, T, X_old, X_new, params, dist):
-    for s_q in range(S):
-        V_q = X_old.V[s_q]
-        for s_p in range(S):
-            if s_p == s_q:
-                continue
-            dev_term = np.array([T[s_p, b] * pgm.dlV(s_p, b, s_q, dist) for b in range(S)])
-            V_q = V_q + (params.tau / params.N) * (sum(dev_term) - pgm.doV(X_old, s_p))
-        X_new.V[s_q] = V_q
-    return X_new.V
-"""
+def log_like(test_set, probability_matrix):
+    count = 0
+    for i in range(len(test_set)):
+        for predecessor, successor in zip(test_set[i][:-1], test_set[i][1:]):
+            count = count + mt.log(probability_matrix[predecessor, successor])
+
+    return count
+
+
+def playlist_generator(num_song, current_song, prob_matrix, song_hash):
+    # prob_matrix = np.genfromtxt(r'C:\Users\eleon\Desktop\SM_Exam\src\latent_representation2200.csv', delimiter=',')
+    root_dir = r'C:\Users\eleon\PycharmProjects\SM_Exam\data\yes_small'
+    #song_hash = pd.read_csv(os.path.join(root_dir, "song_hash.txt"), sep="\t", header=None)
+
+    # Start of the time
+    t = 0
+    # The music playlist
+    playlist = [current_song]
+    # initial probability
+    prob = 1
+    # while loop - the Markov chain did not reach 5 we go on
+    while t < num_song:
+        # Incrementation of time
+        t = t + 1
+        # List of played songs
+        playlist.append(
+            np.random.choice(np.array(song_hash.iloc[0:2200][0]), replace=True, p=prob_matrix[current_song]))
+        prob = prob * prob_matrix[current_song, playlist[-1]]
+        current_song = playlist[-1]
+
+    # Printing the path of the Markov chain
+    # Printing the number of steps
+    # print(len(X)-1)
+    titles = [song_hash.iloc[i][1] for i in playlist]
+    print("Song in the playlist: ", titles)
+    print("End state after ", num_song, " days: ", song_hash.iloc[current_song][1])
+    print("Probability of the possible sequence of states: ", str(prob))
