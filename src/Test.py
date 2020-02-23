@@ -12,15 +12,14 @@ n_iters = [100, 200]
 n_song = 4
 start_song = 5
 
-# dimension = int(sys.argv[1])
-# lam = float(sys.argv[2])
-# r = float(sys.argv[3])
-# n_iter = int(sys.argv[4])
-# tau = float(sys.argv[5])
-# n_song = int(sys.argv[5])
-# start_song = int(sys.argv[6])
-# directory = sys.argv[6]
+dimension = int(sys.argv[1])
+lam = float(sys.argv[2])
+r = float(sys.argv[3])
+n_iter = int(sys.argv[4])
+tau = float(sys.argv[5])
+start_song = int(sys.argv[6])
+directory = sys.argv[6]
 
-# sm.latent_representation(directory, dimension, lam, r, n_iter, tau)
-sm.tran_matrix(2200)
-#pg.playlist_generator(10, 30, 2200)
+sm.latent_representation(directory, dimension, lam, n_iter, tau)
+sm.tran_matrix()
+pg.playlist_generator(10, 30, 2200)
