@@ -28,19 +28,14 @@ def transition_count(songs, dataset):
     return count_matrix
 
 
-def update_songs(transition_matrix, position_old, params, dist):
+def update_songs( position_new, transition_matrix, position_old, params, dist):
     _, d = position_old.shape
-    regularization_derivative = pgm.derivative_of_regularization_term(position_old, params)
+
     mul_term = (params.tau / params.num_transition)
 
-    loss_derivatives = pgm.loss_derivative(dist)
-
-    sum_dev_term = np.multiply(np.repeat(transition_matrix[:, :, np.newaxis], d, axis=2), loss_derivatives)
-    sum_dev_term = np.sum(sum_dev_term, axis=1)
-
-    position_new = position_old + mul_term * np.subtract(sum_dev_term, regularization_derivative)
-
-    return position_new
+    position_new[:, :] = position_old + mul_term * np.subtract(
+                                np.sum(np.multiply(transition_matrix[:, :, np.newaxis], pgm.loss_derivative(dist)), axis=1),
+                                pgm.derivative_of_regularization_term(position_old, params))
 
 
 def log_like(test_set, probability_matrix):

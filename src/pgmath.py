@@ -23,16 +23,17 @@ class Distances:
 
     @classmethod
     def initialize_aux(cls, x):
-        d = Distances.delta(x)
-        z = Distances.zeta(d)
         diff = Distances.difference_matrix(x)
+        d = Distances.delta(diff)
+        z = Distances.zeta(d)
         return z, d, diff
 
     @staticmethod
-    def delta(x):
-        dim = len(x)
-        distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
-        return np.array(distance_mat).reshape((dim, dim))
+    def delta(diff):
+        dim, *_ = diff.shape
+        distance_mat = np.array([[np.linalg.norm(diff[i,j]) if i < j else 0 for j in range(dim)] for i in range(dim)]).reshape((dim, dim))
+        distance_mat = distance_mat + distance_mat.T
+        return distance_mat
 
     @staticmethod
     def zeta(d):
@@ -48,13 +49,11 @@ class Distances:
 
 def loss_derivative(dist):
     _, _, d = dist.diff.shape
-    mul_terms = np.repeat(np.exp(-np.square(dist.D))[:, :, np.newaxis], d, axis=2)
-    sum_terms = np.sum(np.multiply(mul_terms, dist.diff), axis=1)
-    sum_terms = np.divide(sum_terms, np.repeat(dist.Z[:, np.newaxis], d, axis=1))
+
+    sum_terms = np.divide(np.sum(np.multiply(np.exp(-np.square(dist.D))[:, :, np.newaxis], dist.diff), axis=1),
+                          dist.Z[:, np.newaxis])
     return 2 * (-dist.diff * sum_terms)
 
 
 def derivative_of_regularization_term(x, params):
     return np.array(2 * params.lam * x)
-
-

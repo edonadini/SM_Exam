@@ -4,7 +4,8 @@ import pglaststeps as sm
 import pgutils as pg
 import sys
 
-directory = r'C:\Users\eleon\PycharmProjects\SM_Exam\data\yes_small'
+#directory = r'C:\Users\eleon\PycharmProjects\SM_Exam\data\yes_small'
+directory = '../data/yes_small'
 dimensions = [2, 5, 10, 25, 50, 100]
 lams = [0.0001, 0.001, 0.01, 0.1, 1, 10, 20, 50, 100, 500, 1000]
 rs = [0.1, 0.2, 0.3, 0.4, 0.5]
@@ -17,9 +18,9 @@ lam = float(sys.argv[2])
 r = float(sys.argv[3])
 n_iter = int(sys.argv[4])
 tau = float(sys.argv[5])
-start_song = int(sys.argv[6])
-directory = sys.argv[6]
+#start_song = int(sys.argv[6])
+#directory = sys.argv[6]
 
 sm.latent_representation(directory, dimension, lam, n_iter, tau)
-sm.tran_matrix()
-pg.playlist_generator(10, 30, 2200)
+#sm.tran_matrix('./latent_representation.csv')
+#pg.playlist_generator(10, 30, 2200)
