@@ -23,5 +23,3 @@ tau = float(sys.argv[5])
 output_file = 'latent_representation.csv'
 
 sm.latent_representation(output_file, directory, dimension, lam, n_iter, tau, r=r)
-#sm.tran_matrix('./latent_representation.csv')
-#pg.playlist_generator(10, 30, 2200)

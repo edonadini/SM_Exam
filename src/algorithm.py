@@ -15,7 +15,7 @@ def single_point_algorithm(songs, transition_matrix, params):
     squared_error = 200
 
     tic = time.perf_counter()
-    batch = pu.initialize_landmarks(songs, params, position, transition_matrix)
+    batch = pu.initialize_landmarks(songs, params, transition_matrix)
     toc = time.perf_counter()
     print('init landmarks', toc - tic)
 
