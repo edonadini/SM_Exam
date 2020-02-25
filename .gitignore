@@ -1,3 +1,5 @@
 dataset.zip
-/venv
-/.idea
+venv/
+.idea/
+__pycache__/
+Stochastic_Modeling_and_Simulation_presentation.pdf
