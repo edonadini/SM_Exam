@@ -14,13 +14,24 @@ def single_point_algorithm(songs, transition_matrix, params):
     # error for stopping criteria mean square error
     squared_error = 200
 
+    tic = time.perf_counter()
+    batch = pu.initialize_landmarks(songs, params, position, transition_matrix)
+    toc = time.perf_counter()
+    print('init landmarks', toc - tic)
+
     # calculus of the distance matrix (distance matrix for norm and vector, partition function )
-    distances = pm.Distances(position)
+    distances = pm.Distances(position, batch)
 
     # try 100, 200 iterations
     for i in range(params.n_iter):
 
         print('Iteration', i)
+
+        if i % 10 == 0:
+            tic = time.perf_counter()
+            pu.update_landmarks(songs, batch, position, params)
+            toc = time.perf_counter()
+            print('Updated lankmarks:', toc - tic, " seconds")
 
         # update the position of the songs
         tic = time.perf_counter()
@@ -38,7 +49,7 @@ def single_point_algorithm(songs, transition_matrix, params):
             squared_error = squared_error_new
 
         tic = time.perf_counter()
-        distances.update(position)
+        distances.update(position, batch)
         toc = time.perf_counter()
 
         print("Time to update distances:", toc - tic, " seconds")

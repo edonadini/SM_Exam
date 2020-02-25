@@ -21,6 +21,6 @@ tau = float(sys.argv[5])
 #start_song = int(sys.argv[6])
 #directory = sys.argv[6]
 
-sm.latent_representation(directory, dimension, lam, n_iter, tau)
+sm.latent_representation(directory, dimension, lam, n_iter, tau, r=r)
 #sm.tran_matrix('./latent_representation.csv')
 #pg.playlist_generator(10, 30, 2200)

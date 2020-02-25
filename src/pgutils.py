@@ -28,14 +28,14 @@ def transition_count(songs, dataset):
     return count_matrix
 
 
-def update_songs( position_new, transition_matrix, position_old, params, dist):
+def update_songs(position_new, transition_matrix, position_old, params, dist):
     _, d = position_old.shape
 
     mul_term = (params.tau / params.num_transition)
 
     position_new[:, :] = position_old + mul_term * np.subtract(
-                                np.sum(np.multiply(transition_matrix[:, :, np.newaxis], pgm.loss_derivative(dist)), axis=1),
-                                pgm.derivative_of_regularization_term(position_old, params))
+        np.sum(np.multiply(transition_matrix[:, :, np.newaxis], pgm.loss_derivative(dist)), axis=1),
+        pgm.derivative_of_regularization_term(position_old, params))
 
 
 def log_like(test_set, probability_matrix):
@@ -48,7 +48,6 @@ def log_like(test_set, probability_matrix):
 
 
 def playlist_generator(num_song, init_song, prob_matrix, song_hash):
-
     # Start of the time
     t = 0
     last_song = init_song
@@ -68,3 +67,61 @@ def playlist_generator(num_song, init_song, prob_matrix, song_hash):
     titles = [song_hash.iloc[i][1] for i in playlist]
     print("Song in the playlist: ", titles)
     print("Probability of the possible sequence of states: ", str(prob))
+
+
+def update_landmarks(songs, chunk, x, params):
+    """
+       :param songs: number of songs in the database
+       :param chunk: candidate set of successor for each songs s_i
+       :param x: song positions
+       :param params: parameters defined
+    """
+    #if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
+    #    return
+
+    sampled = rnd.sample(range(songs), params.n_landmarks)
+    landmarks = x[sampled, :]
+
+    diff = x[:, np.newaxis, :] - landmarks[np.newaxis, :, :]
+    x_len, y_len, *_ = diff.shape
+    dist = np.empty((x_len, y_len))
+    for i in range(x_len):
+        for j in range(y_len):
+            dist[i, j] = np.linalg.norm(diff[i, j])
+
+    for s in range(songs):
+        #if len(chunk[s]) / songs < params.r:
+        # mi sa che devo considerare non Z ma delta perché voglio la distanza tra le canzoni
+        # Z indica la partition function
+        closest_idx = np.argmin(dist[s, :])
+        closest_landmark = sampled[closest_idx]
+
+            #if closest_landmark not in chunk[s]:
+        chunk[s, closest_landmark] = 0
+
+
+# Ad ogni canzone nel dataset viene associata il landmark piu vicino ed i sucessori
+# osservati nelle playlist
+
+def initialize_landmarks(songs, params, x, transition_matrix):
+    chunk = np.ones((songs, songs, params.dimension))
+    chunk[tuple(np.where(transition_matrix > 0))] = 0
+
+    #if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
+    #    return chunk
+
+    dim = len(x)
+    distance_mat = [[np.linalg.norm(x[i] - x[j]) for j in range(dim)] for i in range(dim)]
+    initial_distance = np.array(distance_mat).reshape((dim, dim))
+
+    landmarks = rnd.sample(range(songs), params.n_landmarks)
+
+    for s in range(songs):
+        #if len(chunk[s]) / songs < params.r:
+        closest_idx = np.argmin(np.array([initial_distance[s][j] for j in landmarks]))
+        closest_landmark = landmarks[closest_idx]
+
+        #if closest_landmark not in chunk[s]:
+        chunk[s, closest_landmark] = 0
+
+    return chunk
