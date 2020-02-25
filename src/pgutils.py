@@ -76,21 +76,21 @@ def update_landmarks(songs, chunk, x, params):
        :param x: song positions
        :param params: parameters defined
     """
-    # if np.min(np.array([len(chunk[i]) / songs for i in range(len(chunk))])) >= params.r:
-    #    return
+    percentage_landmarks = np.sum(1 - chunk[:, :, 0], axis=1) / songs
+    if np.min(percentage_landmarks) >= params.r:
+        return
 
+    to_update = percentage_landmarks < params.r
     sampled = np.array(rnd.sample(range(songs), params.n_landmarks))
     landmarks = x[sampled, :]
 
-    dist = np.linalg.norm(x[:, np.newaxis, :] - landmarks[np.newaxis, :, :], axis=2)
+    dist = np.linalg.norm(x[to_update, np.newaxis, :] - landmarks[np.newaxis, :, :], axis=2)
 
     closest_landmark = sampled[np.argmin(dist, axis=1)]
-    for idx, landmark in enumerate(closest_landmark):
+
+    for idx, landmark in zip(np.where(to_update), closest_landmark):
         chunk[idx, landmark] = 0
 
-
-# Ad ogni canzone nel dataset viene associata il landmark piu vicino ed i sucessori
-# osservati nelle playlist
 
 def initialize_landmarks(songs, params, transition_matrix):
     chunk = np.ones((songs, songs, params.dimension))
