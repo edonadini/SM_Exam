@@ -25,20 +25,15 @@ class Distances:
     @classmethod
     def initialize_aux(cls, x, chunks):
         diff = Distances.difference_matrix(x, chunks)
-        d = Distances.delta(diff, chunks)
+        d = Distances.delta(diff)
         z = Distances.zeta(d)
         return z, d, diff
 
     @staticmethod
-    def delta(diff, chunks):
+    def delta(diff):
         dim, *_ = diff.shape
 
         return np.linalg.norm(diff, axis=2)
-        #distance_mat = np.array(
-        #    [[np.linalg.norm(diff[i, j]) if j in chunks[j] else 0 for j in range(dim)] for i in range(dim)]).reshape(
-        #    (dim, dim))
-        # distance_mat = distance_mat + distance_mat.T
-        #return distance_mat
 
     @staticmethod
     def zeta(d):

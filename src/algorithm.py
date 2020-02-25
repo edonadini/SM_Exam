@@ -31,7 +31,7 @@ def single_point_algorithm(songs, transition_matrix, params):
             tic = time.perf_counter()
             pu.update_landmarks(songs, batch, position, params)
             toc = time.perf_counter()
-            print('Updated lankmarks:', toc - tic, " seconds")
+            print('Updated landmarks:', toc - tic, " seconds")
 
         # update the position of the songs
         tic = time.perf_counter()

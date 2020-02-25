@@ -9,13 +9,15 @@ import time
 from numpy import savetxt
 
 
-def latent_representation(root_dir, dimension, lam, n_iter, tau, r=None):
+def latent_representation(output_file, root_dir, dimension, lam, n_iter, tau, r=None):
     with open(os.path.join(root_dir, "train.txt"), "r") as f:
         train_data = f.readlines()
     train_dataset = pg.data_to_list(train_data[2:])
 
     # train_dataset = train_dataset[:400]
+    #songs = 9775
     songs = 3168
+
 
     jump_matrix = pg.transition_count(songs, train_dataset)
     num_transition = np.sum(jump_matrix)
@@ -27,8 +29,8 @@ def latent_representation(root_dir, dimension, lam, n_iter, tau, r=None):
     X = al.single_point_algorithm(songs, jump_matrix, params)
     toc = time.perf_counter()
 
-    savetxt('latent_representation.csv', X, delimiter=' ')
-    print("total time {(toc - tic)0.4f} seconds")
+    savetxt(output_file, X, delimiter=' ')
+    print(f"total time {toc - tic} seconds")
 
 
 def tran_matrix(file_path):

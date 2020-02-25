@@ -20,7 +20,8 @@ n_iter = int(sys.argv[4])
 tau = float(sys.argv[5])
 #start_song = int(sys.argv[6])
 #directory = sys.argv[6]
+output_file = 'latent_representation.csv'
 
-sm.latent_representation(directory, dimension, lam, n_iter, tau, r=r)
+sm.latent_representation(output_file, directory, dimension, lam, n_iter, tau, r=r)
 #sm.tran_matrix('./latent_representation.csv')
 #pg.playlist_generator(10, 30, 2200)
