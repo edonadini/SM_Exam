@@ -3,3 +3,5 @@ venv/
 .idea/
 __pycache__/
 Stochastic_Modeling_and_Simulation_presentation.pdf
+src/*.csv
+src/__pycache__/
